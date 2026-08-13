@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hassan Xavier - Cloud Engineer</title>
-    <meta name="description" content="Portfolio profesional de Hassan Xavier, especialista en ingeniería cloud y soluciones escalables en AWS, Azure y GCP">
+    <title>Hassan Xavier - Data Engineer</title>
+    <meta name="description" content="Portfolio profesional de Hassan Xavier, Data Engineer especializado en procesamiento y transformación de datos con Python, PySpark y SQL, con experiencia en entornos Big Data y AWS.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,14 +25,14 @@
             <div class="hero-text fade-in">
                 <div class="hero-badge">
                     <i class="fas fa-cloud"></i>
-                    <span>Cloud Engineer</span>
+                    <span>Data Engineer</span>
                 </div>
                 <h1 class="hero-title">
-                    Transformando ideas en <span class="gradient-text">soluciones cloud</span> escalables
+                    Transformando datos en <span class="gradient-text">soluciones de valor</span>
                 </h1>
                 <p class="hero-description">
-                    Especialista en ingeniería cloud y soluciones empresariales. 
-                    Ayudo a empresas a migrar, optimizar y escalar sus infraestructuras en la nube.
+                    Data Engineer especializado en el procesamiento y transformación de datos a gran escala.
+                    Desarrollo soluciones de datos eficientes y escalables con Python, PySpark, SQL y tecnologías AWS.
                 </p>
                 
                 <!-- Personal Presentation within Hero -->
@@ -43,15 +43,17 @@
                     </div>
                     <div class="profile-info">
                         <h2 class="profile-name">Hassan Xavier</h2>
-                        <p class="profile-title">Cloud Engineer</p>
+                        <p class="profile-title">Data Engineer</p>
                     </div>
                 </div>
                 
                 <div class="hero-buttons">
+                    <!--
                     <button class="btn btn-primary btn-lg" onclick="scrollToSection('projects')">
                         <i class="fas fa-rocket"></i>
                         Ver Proyectos
                     </button>
+                    -->
                     <button class="btn btn-outline btn-lg" onclick="scrollToSection('contact')">
                         <i class="fas fa-envelope"></i>
                         Contactar
@@ -69,32 +71,63 @@
                     </div>
                     <div class="card-content">
                         <div class="code-snippet">
-                            <div class="code-line"><span class="keyword">class</span> <span class="class-name">CloudEngineer</span> {</div>
-                            <div class="code-line">  <span class="keyword">constructor</span>() {</div>
-                            <div class="code-line">    <span class="keyword">this</span>.<span class="property">name</span> = <span class="string">'Hassan Xavier'</span>;</div>
-                            <div class="code-line">    <span class="keyword">this</span>.<span class="property">expertise</span> = [</div>
-                            <div class="code-line">      <span class="string">'AWS'</span>, <span class="string">'Docker'</span>, <span class="string">'Kubernetes'</span>, <span class="string">'Terraform'</span></div>
-                            <div class="code-line">    ];</div>
-                            <div class="code-line">    <span class="keyword">this</span>.<span class="property">passion</span> = <span class="string">'Cloud Solutions'</span>;</div>
-                            <div class="code-line">  }</div>
+                            <div class="code-line">
+                                <span class="keyword">class</span> 
+                                <span class="class-name">DataEngineer</span> {
+                            </div>
+
+                            <div class="code-line">
+                                <span class="keyword">constructor</span>() {
+                            </div>
+
+                            <div class="code-line">
+                                <span class="keyword">this</span>.<span class="property">name</span> = 
+                                <span class="string">'Hassan Xavier'</span>;
+                            </div>
+
+                            <div class="code-line">
+                                <span class="keyword">this</span>.<span class="property">expertise</span> = [
+                            </div>
+
+                            <div class="code-line">
+                                <span class="string">'Python'</span>, 
+                                <span class="string">'PySpark'</span>, 
+                                <span class="string">'SQL'</span>, 
+                                <span class="string">'AWS'</span>
+                            </div>
+
+                            <div class="code-line">
+                                ];
+                            </div>
+
+                            <div class="code-line">
+                                <span class="keyword">this</span>.<span class="property">passion</span> = 
+                                <span class="string">'Data Engineering'</span>;
+                            </div>
+
+                            <div class="code-line">}</div>
                             <div class="code-line">}</div>
                         </div>
                     </div>
                 </div>
                 <div class="tech-stack">
+                    <div class="tech-item" data-tech="Python">
+                        <i class="fab fa-python"></i>
+                    </div>
+
+                    <div class="tech-item" data-tech="SQL">
+                        <i class="fas fa-database"></i>
+                    </div>
+
                     <div class="tech-item" data-tech="AWS">
                         <i class="fab fa-aws"></i>
-                </div>
-                    <div class="tech-item" data-tech="Docker">
-                        <i class="fab fa-docker"></i>
-            </div>
-                    <div class="tech-item" data-tech="Kubernetes">
-                        <i class="fas fa-cube"></i>
+                    </div>
+
                 </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator" onclick="scrollToSection('projects')">
+        <div class="scroll-indicator" onclick="scrollToSection('about')">
             <div class="scroll-text">Desliza para explorar</div>
             <div class="scroll-arrow">
                 <i class="fas fa-chevron-down"></i>
@@ -105,9 +138,126 @@
 
 
 
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-user"></i>
+                    <span>Sobre mí</span>
+                </div>
+
+                <h2 class="section-title">Trayectoria y perfil profesional</h2>
+
+                <p class="section-subtitle">
+                    Data Engineer especializado en procesamiento de datos a gran escala, con experiencia en Big Data y tecnologías AWS.
+                </p>
+            </div>
+
+            <div class="about-content">
+
+                <!-- Columna izquierda -->
+                <div class="about-card">
+
+                    <p class="about-description">
+                        Soy Data Engineer con más de tres años de experiencia en proyectos del sector bancario, 
+                        trabajando en el desarrollo y evolución de procesos de datos con Python, PySpark y SQL. 
+                        Mi experiencia se centra en el tratamiento de grandes volúmenes de información, el desarrollo 
+                        de lógica de negocio y la construcción de soluciones de datos en entornos Big Data.
+                    </p>
+
+                    <p class="about-description">
+                        Soy graduado en Economía y posteriormente me especialicé en Big Data y Data Science, 
+                        una combinación que me permite entender tanto la ingeniería detrás del dato como el contexto 
+                        de negocio en el que se utiliza.
+                    </p>
+
+                    <p class="about-description">
+                        Actualmente estoy ampliando mi perfil hacia AWS y arquitecturas Cloud, con especial interés en 
+                        la construcción de plataformas y soluciones de datos escalables en la nube.
+                    </p>
+
+                    <div class="about-highlights">
+
+                    <div class="highlight-item">
+                        <i class="fas fa-database"></i>
+                        <span>Data Engineering</span>
+                    </div>
+
+                    <div class="highlight-item">
+                        <i class="fab fa-python"></i>
+                        <span>Python & PySpark</span>
+                    </div>
+
+                    <div class="highlight-item">
+                        <i class="fas fa-code"></i>
+                        <span>SQL</span>
+                    </div>
+
+                    <div class="highlight-item">
+                        <i class="fab fa-aws"></i>
+                        <span>AWS</span>
+                    </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Columna derecha -->
+                <div class="experience-panel">
+                    <h3 class="experience-title">
+                        <i class="fas fa-briefcase"></i>
+                        Experiencia profesional
+                    </h3>
+
+                    <div class="experience-timeline">
+                        <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+                            <h3>Data Associate Developer</h3>
+                            <p class="timeline-company">Syntonize</p>
+                            <p class="timeline-date">Octubre 2025 - Actualidad</p>
+
+                            <ul class="timeline-details">
+                                <li>Desarrollo y mantenimiento de procesos de datos con PySpark y SQL.</li>
+                                <li>Procesamiento y explotación de datos en AWS mediante S3 y Athena.</li>
+                                <li>Implementación de lógica de negocio, controles y validaciones sobre grandes volúmenes de datos.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+                            <h3>Big Data Engineer</h3>
+                            <p class="timeline-company">Bluetab</p>
+                            <p class="timeline-date">Junio 2023 - Octubre 2025</p>
+
+                            <ul class="timeline-details">
+                                <li>Desarrollo y mantenimiento de procesos Big Data con Python, PySpark y SQL.</li>
+                                <li>Transformación y procesamiento de grandes volúmenes de datos en proyectos del sector bancario.</li>
+                                <li>Desarrollo de evolutivos, controles de calidad del dato y resolución de incidencias.</li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <!-- Projects Section - OCULTA TEMPORALMENTE
+    Para volver a mostrarla, elimina este comentario de apertura y el cierre situado antes de Contact Section.
+
+<section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
                 <div class="section-badge">
@@ -115,7 +265,7 @@
                     <span>Proyectos</span>
                 </div>
                 <h2 class="section-title">Soluciones que transforman negocios</h2>
-                <p class="section-subtitle">Proyectos destacados que demuestran mi experiencia en cloud y DevOps</p>
+                <p class="section-subtitle">Proyectos destacados orientados a ingeniería de datos, procesamiento a gran escala y tecnologías cloud.</p>
             </div>
             <div class="projects-filter">
                 <button class="filter-btn active" data-filter="all">
@@ -141,7 +291,9 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+-->
+
+<!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
@@ -149,8 +301,8 @@
                     <i class="fas fa-envelope"></i>
                     <span>Contacto</span>
                 </div>
-                <h2 class="section-title">¿Listo para transformar tu infraestructura?</h2>
-                <p class="section-subtitle">Hablemos sobre cómo puedo ayudar a tu empresa a escalar en la nube</p>
+                <h2 class="section-title">¿Hablamos?</h2>
+                <p class="section-subtitle">Estoy abierto a nuevos retos y oportunidades en Data Engineering, Big Data y entornos Cloud.</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
@@ -160,8 +312,8 @@
                         </div>
                         <div class="contact-details">
                             <h3>Email</h3>
-                            <p>hassan@midominio.com</p>
-                            <a href="mailto:hassan@midominio.com" class="contact-link">Enviar Email</a>
+                            <p>hassan.chafi@outlook.com</p>
+                            <a href="mailto:hassan.chafi@outlook.com" class="contact-link">Enviar Email</a>
                         </div>
                     </div>
                     <div class="contact-card">
@@ -213,14 +365,16 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <p>Transformando ideas en soluciones cloud escalables</p>
+                    <p>Transformando datos en soluciones escalables</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-section">
                         <h4>Navegación</h4>
                         <ul>
                             <li><a href="#hero">Inicio</a></li>
-                            <li><a href="#projects">Proyectos</a></li>
+                            <li><a href="#about">Sobre mí</a></li>
+                            <!-- <li><a href="#projects">Proyectos</a></li> -->
+                            <li><a href="#contact">Contacto</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
