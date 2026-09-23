@@ -1,425 +1,260 @@
-// ============================================================================
-// SCRIPT PRINCIPAL - PORTFOLIO PROFESIONAL
-// ============================================================================
-// 
-// Este archivo contiene toda la lógica de funcionalidad del portfolio.
-// La configuración de proyectos se encuentra en projects-config.js
-//
-
-// DOM Elements
-let projectsGrid, modal, modalClose, filterBtns, contactForm, particlesContainer;
-
-// Initialize DOM elements when document is ready
-function initializeDOMElements() {
-    projectsGrid = document.getElementById('projectsGrid');
-    modal = document.getElementById('projectModal');
-    modalClose = document.querySelector('.modal-close');
-    filterBtns = document.querySelectorAll('.filter-btn');
-    contactForm = document.getElementById('contactForm');
-    particlesContainer = document.getElementById('particles');
-}
-
-// Current filter
-let currentFilter = 'all';
-
-// Initialize the application
-document.addEventListener('DOMContentLoaded', function() {
-    initializeDOMElements();
-    loadProjects();
-    initializeModal();
-    initializeAnimations();
-    initializeContactForm();
-    initializeProjectFilter();
-    initializeParticles();
-    initializeTechStack();
-    initializeScrollAnimations();
-});
-
-// Load projects into the grid
-function loadProjects(filter = 'all') {
-    console.log('Loading projects...', projects.length, 'projects found');
-    
-    if (!projectsGrid) {
-        console.error('Projects grid element not found!');
-        return;
+const translations = {
+  es: {
+    meta: {
+      title: 'Hassan Chafi Xavier · Data Engineering & Cloud',
+      description: 'Portfolio profesional de Hassan Chafi Xavier centrado en Data Engineering, Cloud y AWS.'
+    },
+    nav: { projects: 'Proyectos', contact: 'Contacto', cv: 'CV' },
+    hero: {
+      title: 'Ingeniería de datos <span class="gradient-text">& cloud</span>',
+      description: 'Trabajo en ingeniería de datos con Python, PySpark y SQL, y en el diseño de soluciones cloud sobre AWS orientadas a procesamiento, automatización y escalabilidad.',
+      role: 'Data Engineer · Cloud Engineering'
+    },
+    buttons: { projects: 'Ver proyectos', contact: 'Contacto', cv: 'Descargar CV' },
+    about: {
+      badge: 'Perfil',
+      title: 'Data & Cloud',
+      summary: 'Ingeniería de datos y cloud aplicada a soluciones robustas, automatizables y mantenibles.'
+    },
+    projects: {
+      badge: 'Proyectos',
+      title: 'Proyectos',
+      subtitle: 'Arquitecturas y soluciones que desarrollo como proyectos personales.',
+      status: 'En producción',
+      description: 'Web estática desplegada en AWS con origen privado en Amazon S3 y distribución mediante CloudFront.',
+      architecture: 'Ver arquitectura',
+      live: 'Visitar web',
+      modalDescription: 'Route 53 resuelve el dominio, CloudFront entrega el contenido por HTTPS y accede mediante OAC a un bucket privado de S3. El certificado TLS se gestiona con AWS Certificate Manager.'
+    },
+    contact: {
+      badge: 'Contacto',
+      title: 'Contacto',
+      subtitle: 'Puedes encontrarme por email, LinkedIn o GitHub.',
+      emailAction: 'Enviar email',
+      linkedinText: 'Perfil profesional',
+      linkedinAction: 'Ver perfil',
+      githubAction: 'Ver GitHub'
+    },
+    footer: {
+      role: 'Data Engineer · Cloud Engineering',
+      rights: 'Todos los derechos reservados.',
+      top: 'Volver arriba'
     }
-    
-    projectsGrid.innerHTML = '';
-    
-    const filteredProjects = filter === 'all' 
-        ? projects 
-        : projects.filter(project => project.tags.includes(filter));
-    
-    console.log('Filtered projects:', filteredProjects.length);
-    
-    filteredProjects.forEach((project, index) => {
-        const projectCard = createProjectCard(project);
-        projectCard.style.animationDelay = `${index * 0.1}s`;
-        projectsGrid.appendChild(projectCard);
-    });
-    
-    // Trigger animation
-    setTimeout(() => {
-        const cards = document.querySelectorAll('.project-card');
-        cards.forEach(card => card.classList.add('animate-in'));
-    }, 100);
+  },
+  en: {
+    meta: {
+      title: 'Hassan Chafi Xavier · Data Engineering & Cloud',
+      description: 'Professional portfolio of Hassan Chafi Xavier focused on Data Engineering, Cloud and AWS.'
+    },
+    nav: { projects: 'Projects', contact: 'Contact', cv: 'CV' },
+    hero: {
+      title: 'Data Engineering <span class="gradient-text">& Cloud</span>',
+      description: 'I work on data engineering with Python, PySpark and SQL, and on cloud solutions built on AWS with a focus on processing, automation and scalability.',
+      role: 'Data Engineer · Cloud Engineering'
+    },
+    buttons: { projects: 'View projects', contact: 'Contact', cv: 'Download CV' },
+    about: {
+      badge: 'Profile',
+      title: 'Data & Cloud',
+      summary: 'Data engineering and cloud applied to robust, automatable and maintainable solutions.'
+    },
+    projects: {
+      badge: 'Projects',
+      title: 'Projects',
+      subtitle: 'Architectures and solutions I build as personal projects.',
+      status: 'In production',
+      description: 'Static website deployed on AWS with a private Amazon S3 origin and content delivery through CloudFront.',
+      architecture: 'View architecture',
+      live: 'Visit website',
+      modalDescription: 'Route 53 resolves the domain, CloudFront serves the content over HTTPS and accesses a private S3 bucket through OAC. The TLS certificate is managed with AWS Certificate Manager.'
+    },
+    contact: {
+      badge: 'Contact',
+      title: 'Contact',
+      subtitle: 'You can reach me by email, LinkedIn or GitHub.',
+      emailAction: 'Send email',
+      linkedinText: 'Professional profile',
+      linkedinAction: 'View profile',
+      githubAction: 'View GitHub'
+    },
+    footer: {
+      role: 'Data Engineer · Cloud Engineering',
+      rights: 'All rights reserved.',
+      top: 'Back to top'
+    }
+  },
+  fr: {
+    meta: {
+      title: 'Hassan Chafi Xavier · Data Engineering & Cloud',
+      description: 'Portfolio professionnel de Hassan Chafi Xavier centré sur le Data Engineering, le Cloud et AWS.'
+    },
+    nav: { projects: 'Projets', contact: 'Contact', cv: 'CV' },
+    hero: {
+      title: 'Data Engineering <span class="gradient-text">& Cloud</span>',
+      description: 'Je travaille sur des projets de data engineering avec Python, PySpark et SQL, ainsi que sur des solutions cloud AWS orientées traitement, automatisation et scalabilité.',
+      role: 'Data Engineer · Cloud Engineering'
+    },
+    buttons: { projects: 'Voir les projets', contact: 'Contact', cv: 'Télécharger le CV' },
+    about: {
+      badge: 'Profil',
+      title: 'Data & Cloud',
+      summary: 'Data engineering et cloud appliqués à des solutions robustes, automatisables et maintenables.'
+    },
+    projects: {
+      badge: 'Projets',
+      title: 'Projets',
+      subtitle: 'Architectures et solutions que je développe dans le cadre de projets personnels.',
+      status: 'En production',
+      description: 'Site statique déployé sur AWS avec une origine Amazon S3 privée et une distribution du contenu via CloudFront.',
+      architecture: 'Voir l’architecture',
+      live: 'Visiter le site',
+      modalDescription: 'Route 53 assure la résolution du domaine, CloudFront distribue le contenu en HTTPS et accède via OAC à un bucket S3 privé. Le certificat TLS est géré avec AWS Certificate Manager.'
+    },
+    contact: {
+      badge: 'Contact',
+      title: 'Contact',
+      subtitle: 'Vous pouvez me contacter par e-mail, LinkedIn ou GitHub.',
+      emailAction: 'Envoyer un e-mail',
+      linkedinText: 'Profil professionnel',
+      linkedinAction: 'Voir le profil',
+      githubAction: 'Voir GitHub'
+    },
+    footer: {
+      role: 'Data Engineer · Cloud Engineering',
+      rights: 'Tous droits réservés.',
+      top: 'Retour en haut'
+    }
+  }
+};
+
+let currentLanguage = 'es';
+
+function getTranslation(path) {
+  return path.split('.').reduce((obj, key) => obj?.[key], translations[currentLanguage]);
 }
 
-// Create project card element
-function createProjectCard(project) {
-    const card = document.createElement('div');
-    card.className = 'project-card';
-    card.onclick = () => openModal(project);
-    
-    card.innerHTML = `
-        <img src="${project.image}" alt="${project.title}" class="project-image">
-        <div class="project-info">
-            <h3 class="project-title">${project.title}</h3>
-            <p class="project-description">${project.description}</p>
-            <div class="project-tags">
-                ${project.tags.map(tag => `<span class="project-tag" data-tag="${tag}">${tag}</span>`).join('')}
-            </div>
-            <div class="project-links">
-                <a href="${project.github}" target="_blank" class="project-link primary" onclick="event.stopPropagation(); if(this.href === '#') { alert('Enlace no disponible'); return false; }">
-                    <i class="fab fa-github"></i>
-                    Ver Código
-                </a>
-                <a href="${project.demo}" target="_blank" class="project-link secondary" onclick="event.stopPropagation(); if(this.href === '#') { alert('Enlace no disponible'); return false; }">
-                    <i class="fas fa-external-link-alt"></i>
-                    Ver Demo
-                </a>
-            </div>
-        </div>
-    `;
-    
-    return card;
+function setLanguage(lang) {
+  if (!translations[lang]) return;
+
+  currentLanguage = lang;
+  document.documentElement.lang = lang;
+
+  try {
+    localStorage.setItem('portfolioLanguage', lang);
+  } catch (_) {}
+
+  document.querySelectorAll('[data-i18n]').forEach((element) => {
+    const value = getTranslation(element.dataset.i18n);
+    if (typeof value === 'string') element.textContent = value;
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach((element) => {
+    const value = getTranslation(element.dataset.i18nHtml);
+    if (typeof value === 'string') element.innerHTML = value;
+  });
+
+  document.title = translations[lang].meta.title;
+  const description = document.querySelector('meta[name="description"]');
+  if (description) description.setAttribute('content', translations[lang].meta.description);
+
+  document.querySelectorAll('.lang-btn').forEach((button) => {
+    const active = button.dataset.lang === lang;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
 }
 
-// Project filter functionality
-function initializeProjectFilter() {
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-            
-            // Update active button
-            filterBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Load filtered projects
-            currentFilter = filter;
-            loadProjects(filter);
-        });
-    });
-}
-
-// Scroll to section
 function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
+  document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// Modal functionality
-function initializeModal() {
-    // Close modal when clicking outside
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-    
-    // Close modal with escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'block') {
-            closeModal();
-        }
-    });
-    
-    // Close button
-    modalClose.addEventListener('click', closeModal);
-}
-
-// Open project modal
-function openModal(project) {
-    const modalTitle = document.getElementById('modalTitle');
-    const modalImage = document.getElementById('modalImage');
-    const modalDescription = document.getElementById('modalDescription');
-    const modalTechnologies = document.getElementById('modalTechnologies');
-    const modalGithub = document.getElementById('modalGithub');
-    const modalDemo = document.getElementById('modalDemo');
-    
-    modalTitle.textContent = project.title;
-    modalImage.src = project.image;
-    modalImage.alt = project.title;
-    modalDescription.textContent = project.fullDescription;
-    
-    modalTechnologies.innerHTML = project.technologies.map(tech => 
-        `<span class="modal-tech-tag">${tech}</span>`
-    ).join('');
-    
-    modalGithub.href = project.github;
-    modalDemo.href = project.demo;
-    
-    // Add click handlers for modal buttons
-    modalGithub.onclick = function(e) {
-        if (this.href === '#') {
-            e.preventDefault();
-            alert('Enlace no disponible');
-            return false;
-        }
-    };
-    
-    modalDemo.onclick = function(e) {
-        if (this.href === '#') {
-            e.preventDefault();
-            alert('Enlace no disponible');
-            return false;
-        }
-    };
-    
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    
-    // Add animation
-    setTimeout(() => {
-        modal.querySelector('.modal-content').style.transform = 'scale(1)';
-        modal.querySelector('.modal-content').style.opacity = '1';
-    }, 10);
-}
-
-// Close modal
-function closeModal() {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-// Initialize animations
-function initializeAnimations() {
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements for animation
-    document.querySelectorAll('.project-card, .skill-item, .contact-card, .about-card').forEach(el => {
-        observer.observe(el);
-    });
-}
-
-
-
-
-
-// Initialize contact form
-function initializeContactForm() {
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Simulate form submission
-            showNotification('Mensaje enviado correctamente. Te responderé pronto.', 'success');
-            this.reset();
-        });
-    }
-}
-
-// Show notification
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
-            <span>${message}</span>
-        </div>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 10);
-    
-    // Remove after 5 seconds
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 5000);
-}
-
-// Initialize particles
 function initializeParticles() {
-    if (!particlesContainer) return;
-    
-    const particleCount = 50;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.cssText = `
-            position: absolute;
-            width: ${Math.random() * 4 + 2}px;
-            height: ${Math.random() * 4 + 2}px;
-            background: rgba(255, 255, 255, ${Math.random() * 0.3 + 0.1});
-            border-radius: 50%;
-            left: ${Math.random() * 100}%;
-            top: ${Math.random() * 100}%;
-            animation: float ${Math.random() * 10 + 5}s ease-in-out infinite;
-            animation-delay: ${Math.random() * 5}s;
-        `;
-        particlesContainer.appendChild(particle);
-    }
+  const container = document.getElementById('particles');
+  if (!container || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const fragment = document.createDocumentFragment();
+
+  for (let i = 0; i < 36; i += 1) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.cssText = [
+      'position:absolute',
+      `width:${Math.random() * 3 + 2}px`,
+      `height:${Math.random() * 3 + 2}px`,
+      `background:rgba(255,255,255,${Math.random() * 0.24 + 0.08})`,
+      'border-radius:50%',
+      `left:${Math.random() * 100}%`,
+      `top:${Math.random() * 100}%`,
+      `animation:float ${Math.random() * 10 + 6}s ease-in-out infinite`,
+      `animation-delay:${Math.random() * 5}s`
+    ].join(';');
+    fragment.appendChild(particle);
+  }
+
+  container.appendChild(fragment);
 }
 
-// Initialize tech stack interactions
-function initializeTechStack() {
-    const techItems = document.querySelectorAll('.tech-item');
-    
-    techItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            const tech = this.getAttribute('data-tech');
-            this.style.transform = 'translateY(-10px) scale(1.2)';
-            this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.3)';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
-        });
-        
-        item.addEventListener('click', function() {
-            const tech = this.getAttribute('data-tech');
-            showNotification(`Tecnología: ${tech}`, 'info');
-        });
+function initializeAnimations() {
+  if (!('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.project-card, .contact-card, .profile-summary-row').forEach((element) => observer.observe(element));
 }
 
-// Initialize scroll animations
-function initializeScrollAnimations() {
-    const scrollElements = document.querySelectorAll('.scroll-animate');
-    
-    const scrollObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    scrollElements.forEach(el => scrollObserver.observe(el));
+function initializeArchitectureModal() {
+  const modal = document.getElementById('architectureModal');
+  const openButton = document.getElementById('openArchitecture');
+  const closeButton = modal?.querySelector('.architecture-close');
+
+  if (!modal || !openButton || !closeButton) return;
+
+  let lastFocused = null;
+
+  const open = () => {
+    lastFocused = document.activeElement;
+    modal.style.display = 'block';
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    closeButton.focus();
+  };
+
+  const close = () => {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lastFocused?.focus?.();
+  };
+
+  openButton.addEventListener('click', open);
+  closeButton.addEventListener('click', close);
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) close();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') close();
+  });
 }
 
-// Add CSS for notifications
-const notificationStyles = `
-<style>
-.notification {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    padding: 16px 20px;
-    transform: translateX(400px);
-    transition: transform 0.3s ease;
-    z-index: 10000;
-    border-left: 4px solid #06b6d4;
-}
+document.addEventListener('DOMContentLoaded', () => {
+  let savedLanguage = 'es';
+  try {
+    savedLanguage = localStorage.getItem('portfolioLanguage') || 'es';
+  } catch (_) {}
 
-.notification.show {
-    transform: translateX(0);
-}
+  document.querySelectorAll('.lang-btn').forEach((button) => {
+    button.addEventListener('click', () => setLanguage(button.dataset.lang));
+  });
 
-.notification-content {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.notification i {
-    color: #06b6d4;
-    font-size: 18px;
-}
-
-.notification.notification-error {
-    border-left-color: #ef4444;
-}
-
-.notification.notification-error i {
-    color: #ef4444;
-}
-
-.notification.notification-warning {
-    border-left-color: #f59e0b;
-}
-
-.notification.notification-warning i {
-    color: #f59e0b;
-}
-
-.particle {
-    pointer-events: none;
-}
-
-.nav.scrolled {
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.nav-menu.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-}
-
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-    }
-    
-    .nav-menu.active {
-        display: flex;
-    }
-}
-</style>
-`;
-
-document.head.insertAdjacentHTML('beforeend', notificationStyles);
+  setLanguage(translations[savedLanguage] ? savedLanguage : 'es');
+  initializeParticles();
+  initializeAnimations();
+  initializeArchitectureModal();
+});

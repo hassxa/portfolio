@@ -3,356 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hassan Xavier - Data Engineer</title>
-    <meta name="description" content="Portfolio profesional de Hassan Xavier, Data Engineer especializado en procesamiento y transformación de datos con Python, PySpark y SQL, con experiencia en entornos Big Data y AWS.">
+    <title>Hassan Chafi Xavier · Data Engineering & Cloud</title>
+    <meta name="description" content="Portfolio profesional de Hassan Chafi Xavier centrado en Data Engineering, Cloud y AWS.">
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#0d2b5e">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-background">
-            <div class="particles-container" id="particles"></div>
-            <div class="floating-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-                <div class="shape shape-4"></div>
+    <header class="portfolio-topbar">
+        <div class="topbar-inner">
+            <a class="brand-mark-hcx" href="#hero" aria-label="Hassan Chafi Xavier - inicio">
+                <img src="imagenes/hcx-logo.png" alt="" class="brand-logo-img" aria-hidden="true">
+            </a>
+
+            <nav class="topbar-nav" aria-label="Main navigation">
+                <a href="#projects" data-i18n="nav.projects">Proyectos</a>
+                <a href="#contact" data-i18n="nav.contact">Contacto</a>
+                <a href="assets/CHAFI_XAVIER_HASSAN_CV.pdf" download="CHAFI_XAVIER_HASSAN_CV.pdf" class="topbar-cv">
+                    <i class="fas fa-file-arrow-down"></i>
+                    <span data-i18n="nav.cv">CV</span>
+                </a>
+            </nav>
+
+            <div class="language-switcher" aria-label="Language selector">
+                <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+                <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+                <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
             </div>
         </div>
-        <div class="hero-content">
-            <div class="hero-text fade-in">
-                <div class="hero-badge">
-                    <i class="fas fa-cloud"></i>
-                    <span>Data Engineer</span>
-                </div>
-                <h1 class="hero-title">
-                    Transformando datos en <span class="gradient-text">soluciones de valor</span>
-                </h1>
-                <p class="hero-description">
-                    Data Engineer especializado en el procesamiento y transformación de datos a gran escala.
-                    Desarrollo soluciones de datos eficientes y escalables con Python, PySpark, SQL y tecnologías AWS.
-                </p>
-                
-                <!-- Personal Presentation within Hero -->
-                <div class="hero-presentation">
-                    <div class="profile-image-container">
-                        <img src="imagenes/hassan_xavier.jpg" alt="Hassan Xavier" class="profile-image">
-                        <div class="profile-border"></div>
-                    </div>
-                    <div class="profile-info">
-                        <h2 class="profile-name">Hassan Xavier</h2>
-                        <p class="profile-title">Data Engineer</p>
-                    </div>
-                </div>
-                
-                <div class="hero-buttons">
-                    <!--
-                    <button class="btn btn-primary btn-lg" onclick="scrollToSection('projects')">
-                        <i class="fas fa-rocket"></i>
-                        Ver Proyectos
-                    </button>
-                    -->
-                    <button class="btn btn-outline btn-lg" onclick="scrollToSection('contact')">
-                        <i class="fas fa-envelope"></i>
-                        Contactar
-                    </button>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section id="hero" class="hero">
+            <div class="hero-background">
+                <div class="particles-container" id="particles"></div>
+                <div class="floating-shapes" aria-hidden="true">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                    <div class="shape shape-4"></div>
                 </div>
             </div>
-            <div class="hero-visual fade-in-delay">
-                <div class="floating-card">
-                    <div class="card-header">
-                        <div class="card-dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <div class="code-snippet">
-                            <div class="code-line">
-                                <span class="keyword">class</span> 
-                                <span class="class-name">DataEngineer</span> {
-                            </div>
 
-                            <div class="code-line">
-                                <span class="keyword">constructor</span>() {
-                            </div>
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <h1 class="hero-title" data-i18n-html="hero.title">
+                        Ingeniería de datos <span class="gradient-text">& cloud</span>
+                    </h1>
 
-                            <div class="code-line">
-                                <span class="keyword">this</span>.<span class="property">name</span> = 
-                                <span class="string">'Hassan Xavier'</span>;
-                            </div>
-
-                            <div class="code-line">
-                                <span class="keyword">this</span>.<span class="property">expertise</span> = [
-                            </div>
-
-                            <div class="code-line">
-                                <span class="string">'Python'</span>, 
-                                <span class="string">'PySpark'</span>, 
-                                <span class="string">'SQL'</span>, 
-                                <span class="string">'AWS'</span>
-                            </div>
-
-                            <div class="code-line">
-                                ];
-                            </div>
-
-                            <div class="code-line">
-                                <span class="keyword">this</span>.<span class="property">passion</span> = 
-                                <span class="string">'Data Engineering'</span>;
-                            </div>
-
-                            <div class="code-line">}</div>
-                            <div class="code-line">}</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tech-stack">
-                    <div class="tech-item" data-tech="Python">
-                        <i class="fab fa-python"></i>
-                    </div>
-
-                    <div class="tech-item" data-tech="SQL">
-                        <i class="fas fa-database"></i>
-                    </div>
-
-                    <div class="tech-item" data-tech="AWS">
-                        <i class="fab fa-aws"></i>
-                    </div>
-
-                </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator" onclick="scrollToSection('about')">
-            <div class="scroll-text">Desliza para explorar</div>
-            <div class="scroll-arrow">
-                <i class="fas fa-chevron-down"></i>
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-
-            <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-user"></i>
-                    <span>Sobre mí</span>
-                </div>
-
-                <h2 class="section-title">Trayectoria y perfil profesional</h2>
-
-                <p class="section-subtitle">
-                    Data Engineer especializado en procesamiento de datos a gran escala, con experiencia en Big Data y tecnologías AWS.
-                </p>
-            </div>
-
-            <div class="about-content">
-
-                <!-- Columna izquierda -->
-                <div class="about-card">
-
-                    <p class="about-description">
-                        Soy Data Engineer con más de tres años de experiencia en proyectos del sector bancario, 
-                        trabajando en el desarrollo y evolución de procesos de datos con Python, PySpark y SQL. 
-                        Mi experiencia se centra en el tratamiento de grandes volúmenes de información, el desarrollo 
-                        de lógica de negocio y la construcción de soluciones de datos en entornos Big Data.
+                    <p class="hero-description" data-i18n="hero.description">
+                        Diseño y desarrollo soluciones de datos con Python, PySpark y SQL, y trabajo con AWS para construir arquitecturas orientadas a procesamiento, automatización y escalabilidad.
                     </p>
 
-                    <p class="about-description">
-                        Soy graduado en Economía y posteriormente me especialicé en Big Data y Data Science, 
-                        una combinación que me permite entender tanto la ingeniería detrás del dato como el contexto 
-                        de negocio en el que se utiliza.
-                    </p>
-
-                    <p class="about-description">
-                        Actualmente estoy ampliando mi perfil hacia AWS y arquitecturas Cloud, con especial interés en 
-                        la construcción de plataformas y soluciones de datos escalables en la nube.
-                    </p>
-
-                    <div class="about-highlights">
-
-                    <div class="highlight-item">
-                        <i class="fas fa-database"></i>
-                        <span>Data Engineering</span>
-                    </div>
-
-                    <div class="highlight-item">
-                        <i class="fab fa-python"></i>
-                        <span>Python & PySpark</span>
-                    </div>
-
-                    <div class="highlight-item">
-                        <i class="fas fa-code"></i>
-                        <span>SQL</span>
-                    </div>
-
-                    <div class="highlight-item">
-                        <i class="fab fa-aws"></i>
-                        <span>AWS</span>
-                    </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Columna derecha -->
-                <div class="experience-panel">
-                    <h3 class="experience-title">
-                        <i class="fas fa-briefcase"></i>
-                        Experiencia profesional
-                    </h3>
-
-                    <div class="experience-timeline">
-                        <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-content">
-                            <h3>Data Associate Developer</h3>
-                            <p class="timeline-company">Syntonize</p>
-                            <p class="timeline-date">Octubre 2025 - Actualidad</p>
-
-                            <ul class="timeline-details">
-                                <li>Desarrollo y mantenimiento de procesos de datos con PySpark y SQL.</li>
-                                <li>Procesamiento y explotación de datos en AWS mediante S3 y Athena.</li>
-                                <li>Implementación de lógica de negocio, controles y validaciones sobre grandes volúmenes de datos.</li>
-                            </ul>
+                    <div class="hero-presentation">
+                        <div class="profile-image-container">
+                            <img src="imagenes/hassan_xavier.jpg" alt="Hassan Chafi Xavier" class="profile-image">
+                        </div>
+                        <div class="profile-info">
+                            <h2 class="profile-name">Hassan Chafi Xavier</h2>
+                            <p class="profile-title" data-i18n="hero.role">Data Engineer · Cloud Engineering</p>
                         </div>
                     </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-content">
-                            <h3>Big Data Engineer</h3>
-                            <p class="timeline-company">Bluetab</p>
-                            <p class="timeline-date">Junio 2023 - Octubre 2025</p>
-
-                            <ul class="timeline-details">
-                                <li>Desarrollo y mantenimiento de procesos Big Data con Python, PySpark y SQL.</li>
-                                <li>Transformación y procesamiento de grandes volúmenes de datos en proyectos del sector bancario.</li>
-                                <li>Desarrollo de evolutivos, controles de calidad del dato y resolución de incidencias.</li>
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-
-
-
-    <!-- Projects Section - OCULTA TEMPORALMENTE
-    Para volver a mostrarla, elimina este comentario de apertura y el cierre situado antes de Contact Section.
-
-<section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-project-diagram"></i>
-                    <span>Proyectos</span>
-                </div>
-                <h2 class="section-title">Soluciones que transforman negocios</h2>
-                <p class="section-subtitle">Proyectos destacados orientados a ingeniería de datos, procesamiento a gran escala y tecnologías cloud.</p>
-            </div>
-            <div class="projects-filter">
-                <button class="filter-btn active" data-filter="all">
-                    <i class="fas fa-th"></i>
-                    Todos
-                </button>
-                <button class="filter-btn" data-filter="Básico">
-                    <i class="fas fa-star"></i>
-                    Básico
-                </button>
-                <button class="filter-btn" data-filter="Avanzado">
-                    <i class="fas fa-rocket"></i>
-                    Avanzado
-                </button>
-                <button class="filter-btn" data-filter="Profesional">
-                    <i class="fas fa-crown"></i>
-                    Profesional
-                </button>
-            </div>
-            <div class="projects-grid" id="projectsGrid">
-                <!-- Projects will be loaded by JavaScript -->
-            </div>
-        </div>
-    </section>
-
--->
-
-<!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-envelope"></i>
-                    <span>Contacto</span>
-                </div>
-                <h2 class="section-title">¿Hablamos?</h2>
-                <p class="section-subtitle">Estoy abierto a nuevos retos y oportunidades en Data Engineering, Big Data y entornos Cloud.</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p>hassan.chafi@outlook.com</p>
-                            <a href="mailto:hassan.chafi@outlook.com" class="contact-link">Enviar Email</a>
-                        </div>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>LinkedIn</h3>
-                            <p>Conecta profesionalmente</p>
-                            <a href="https://es.linkedin.com/in/hassan-chafi-xavier-b27b501b0" target="_blank" class="contact-link">Ver Perfil</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Modal -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle"></h2>
-            <span class="modal-close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image-container">
-                <img id="modalImage" src="" alt="" class="modal-image">
-                </div>
-                <div class="modal-info">
-                    <p id="modalDescription"></p>
-                    <div class="modal-technologies" id="modalTechnologies"></div>
-                    <div class="modal-buttons">
-                        <a id="modalGithub" href="#" target="_blank" class="btn btn-primary">
-                            <i class="fab fa-github"></i>
-                            Ver Código
+                    <div class="hero-buttons" aria-label="Acciones principales">
+                        <button class="hero-cta hero-cta-primary" type="button" onclick="scrollToSection('projects')">
+                            <span data-i18n="buttons.projects">Ver proyectos</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                        <a id="cvButton" class="hero-cta hero-cta-secondary" href="assets/CHAFI_XAVIER_HASSAN_CV.pdf" download="CHAFI_XAVIER_HASSAN_CV.pdf">
+                            <i class="fas fa-file-arrow-down"></i>
+                            <span data-i18n="buttons.cv">Descargar CV</span>
                         </a>
-                        <a id="modalDemo" href="#" target="_blank" class="btn btn-outline">
+                        <button class="hero-cta hero-cta-tertiary" type="button" onclick="scrollToSection('contact')">
+                            <span data-i18n="buttons.contact">Contacto</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hero-visual fade-in-delay">
+                    <div class="floating-card">
+                        <div class="card-header">
+                            <div class="card-dots"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="code-snippet" aria-label="Technical focus">
+                                <div class="code-line"><span class="keyword">const</span> <span class="property">engineering</span> = {</div>
+                                <div class="code-line">&nbsp;&nbsp;<span class="property">data</span>: [<span class="string">'Python'</span>, <span class="string">'PySpark'</span>, <span class="string">'SQL'</span>],</div>
+                                <div class="code-line">&nbsp;&nbsp;<span class="property">cloud</span>: [<span class="string">'AWS'</span>],</div>
+                                <div class="code-line">&nbsp;&nbsp;<span class="property">focus</span>: <span class="string">'Data & Cloud'</span></div>
+                                <div class="code-line">};</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-stack" aria-label="Main technologies">
+                        <div class="tech-item" data-tech="Python" title="Python"><i class="fab fa-python"></i></div>
+                        <div class="tech-item" data-tech="SQL" title="SQL"><i class="fas fa-database"></i></div>
+                        <div class="tech-item" data-tech="AWS" title="AWS"><i class="fab fa-aws"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Perfil compacto -->
+        <section id="about" class="about about-compact-section">
+            <div class="container">
+                <div class="section-header compact-section-header">
+                    <div class="section-badge"><i class="fas fa-code-branch"></i><span data-i18n="about.badge">Perfil</span></div>
+                    <h2 class="section-title" data-i18n="about.title">Data & Cloud</h2>
+                </div>
+                <div class="profile-summary-row">
+                    <p class="profile-summary" data-i18n="about.summary">
+                        Perfil técnico centrado en ingeniería de datos y cloud, con foco en procesamiento, automatización y arquitectura AWS.
+                    </p>
+                    <a class="profile-cv-link" href="assets/CHAFI_XAVIER_HASSAN_CV.pdf" download="CHAFI_XAVIER_HASSAN_CV.pdf">
+                        <i class="fas fa-file-arrow-down"></i>
+                        <span data-i18n="buttons.cv">Descargar CV</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge"><i class="fas fa-project-diagram"></i><span data-i18n="projects.badge">Proyectos</span></div>
+                    <h2 class="section-title" data-i18n="projects.title">Proyectos</h2>
+                    <p class="section-subtitle" data-i18n="projects.subtitle">Proyectos personales centrados en datos, cloud y arquitectura AWS.</p>
+                </div>
+
+                <div class="projects-grid portfolio-projects-grid">
+                    <article class="project-card portfolio-project-card">
+                        <div class="project-visual">
+                            <img src="imagenes/Malaga-Stays-AWS-Architecture.png" alt="Arquitectura AWS de Málaga Stays" class="project-image project-image-architecture">
+                            <span class="project-index">01</span>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-heading-row">
+                                <h3 class="project-title">Málaga Stays</h3>
+                                <span class="project-status" data-i18n="projects.status">En producción</span>
+                            </div>
+                            <p class="project-description" data-i18n="projects.description">Web estática desplegada en AWS con origen privado en Amazon S3 y distribución mediante CloudFront.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Amazon S3</span>
+                                <span class="project-tag">CloudFront</span>
+                                <span class="project-tag">Route 53</span>
+                                <span class="project-tag">ACM</span>
+                                <span class="project-tag">OAC</span>
+                            </div>
+                            <div class="project-links">
+                                <button type="button" class="project-link primary project-link-button" id="openArchitecture">
+                                    <i class="fas fa-diagram-project"></i>
+                                    <span data-i18n="projects.architecture">Ver arquitectura</span>
+                                </button>
+                                <a href="https://malaga-stays.com/" target="_blank" rel="noopener noreferrer" class="project-link secondary">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span data-i18n="projects.live">Visitar web</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge"><i class="fas fa-envelope"></i><span data-i18n="contact.badge">Contacto</span></div>
+                    <h2 class="section-title" data-i18n="contact.title">Contacto</h2>
+                    <p class="section-subtitle" data-i18n="contact.subtitle">Puedes encontrarme por email, LinkedIn o GitHub.</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info contact-grid-equal">
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>hassan.chafi@outlook.com</p>
+                                <a href="mailto:hassan.chafi@outlook.com" class="contact-link" data-i18n="contact.emailAction">Enviar email</a>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+                            <div class="contact-details">
+                                <h3>LinkedIn</h3>
+                                <p data-i18n="contact.linkedinText">Perfil profesional</p>
+                                <a href="https://www.linkedin.com/in/hassan-chafi-xavier-b27b501b0" target="_blank" rel="noopener noreferrer" class="contact-link" data-i18n="contact.linkedinAction">Ver perfil</a>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fab fa-github"></i></div>
+                            <div class="contact-details">
+                                <h3>GitHub</h3>
+                                <p>@hassxa</p>
+                                <a href="https://github.com/hassxa" target="_blank" rel="noopener noreferrer" class="contact-link" data-i18n="contact.githubAction">Ver GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Architecture Modal -->
+    <div id="architectureModal" class="modal" aria-hidden="true">
+        <div class="modal-content architecture-modal-content" role="dialog" aria-modal="true" aria-labelledby="architectureTitle">
+            <div class="modal-header">
+                <h2 id="architectureTitle">Málaga Stays · AWS Architecture</h2>
+                <button type="button" class="modal-close architecture-close" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body architecture-modal-body">
+                <div class="modal-image-container architecture-image-container">
+                    <img src="imagenes/Malaga-Stays-AWS-Architecture.png" alt="Málaga Stays AWS Architecture" class="modal-image architecture-modal-image">
+                </div>
+                <div class="modal-info architecture-modal-info">
+                    <p data-i18n="projects.modalDescription">Route 53 resuelve el dominio, CloudFront entrega el contenido por HTTPS y accede mediante OAC a un bucket privado de S3. El certificado TLS se gestiona con AWS Certificate Manager.</p>
+                    <div class="modal-technologies">
+                        <span class="modal-tech-tag">Route 53</span>
+                        <span class="modal-tech-tag">CloudFront</span>
+                        <span class="modal-tech-tag">S3</span>
+                        <span class="modal-tech-tag">ACM</span>
+                        <span class="modal-tech-tag">OAC</span>
+                    </div>
+                    <div class="modal-buttons">
+                        <a href="https://malaga-stays.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                             <i class="fas fa-external-link-alt"></i>
-                            Ver Demo
+                            <span data-i18n="projects.live">Visitar web</span>
                         </a>
                     </div>
                 </div>
@@ -360,39 +247,33 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer portfolio-footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <p>Transformando datos en soluciones escalables</p>
+            <div class="footer-main">
+                <div class="footer-identity">
+                    <div class="footer-mark">
+                        <img src="imagenes/hcx-logo.png" alt="" class="footer-logo-img" aria-hidden="true">
+                    </div>
+                    <div>
+                        <strong>Hassan Chafi Xavier</strong>
+                        <p data-i18n="footer.role">Data Engineer · Cloud Engineering</p>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <div class="footer-section">
-                        <h4>Navegación</h4>
-                        <ul>
-                            <li><a href="#hero">Inicio</a></li>
-                            <li><a href="#about">Sobre mí</a></li>
-                            <!-- <li><a href="#projects">Proyectos</a></li> -->
-                            <li><a href="#contact">Contacto</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Contacto</h4>
-                        <ul>
-                            <li><a href="mailto:hassan@midominio.com">Email</a></li>
-                            <li><a href="https://es.linkedin.com/in/hassan-chafi-xavier-b27b501b0" target="_blank">LinkedIn</a></li>
-                        </ul>
-                    </div>
+
+                <div class="footer-socials" aria-label="Professional links">
+                    <a href="mailto:hassan.chafi@outlook.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/hassan-chafi-xavier-b27b501b0" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/hassxa" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Hassan Xavier | Todos los derechos reservados.</p>
+
+            <div class="footer-bottom footer-bottom-modern">
+                <p>&copy; 2026 Hassan Chafi Xavier · <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
+                <a href="#hero" class="back-to-top"><span data-i18n="footer.top">Volver arriba</span> <i class="fas fa-arrow-up"></i></a>
             </div>
         </div>
     </footer>
 
-    <script src="projects-config.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1707,3 +1707,803 @@ p {
         font-size: 0.88rem;
     }
 }
+/* ========================================================================== */
+/* Portfolio adaptation: ES / EN / FR, single project, CV and language switch */
+/* ========================================================================== */
+.language-switcher {
+    position: fixed;
+    top: 22px;
+    right: 24px;
+    z-index: 1000;
+    display: flex;
+    gap: 6px;
+    padding: 6px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.46);
+    border: 1px solid rgba(255,255,255,.2);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 10px 30px rgba(15,23,42,.18);
+}
+
+.lang-btn {
+    border: 0;
+    color: rgba(255,255,255,.74);
+    background: transparent;
+    border-radius: 999px;
+    padding: 7px 10px;
+    font-family: inherit;
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.lang-btn:hover { color: white; }
+.lang-btn.active { color: #1d4ed8; background: white; }
+
+.about-content-single { grid-template-columns: minmax(0, 1fr) !important; max-width: 980px; margin-left: auto; margin-right: auto; }
+.about-card-wide { padding: clamp(2rem, 4vw, 3.25rem); }
+.about-cv-note {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    color: var(--text-secondary);
+    font-size: .95rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+}
+.about-cv-note i { color: var(--primary-color); }
+
+.cv-disabled { opacity: .82; cursor: pointer; }
+
+.projects-grid-single { grid-template-columns: minmax(0, 820px); justify-content: center; }
+.project-card-featured { cursor: default; }
+.project-image-architecture { height: 360px; object-fit: contain; background: #fff; padding: 20px; }
+.project-link-button { border: 0; font: inherit; cursor: pointer; }
+
+.architecture-modal-content { max-width: 1050px; }
+.architecture-modal-body { grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr); align-items: center; }
+.architecture-image-container { background: #fff; border-radius: 14px; padding: 18px; }
+.architecture-modal-image { width: 100%; height: auto; max-height: 72vh; object-fit: contain; }
+.architecture-modal-info p { line-height: 1.75; }
+.architecture-close { border: 0; background: transparent; font: inherit; cursor: pointer; }
+
+.contact-info { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+@media (max-width: 900px) {
+    .architecture-modal-body { grid-template-columns: 1fr; }
+    .contact-info { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .language-switcher { top: 12px; right: 12px; }
+    .hero { padding-top: 62px; }
+    .project-image-architecture { height: 280px; }
+}
+
+@media (max-width: 520px) {
+    .hero-buttons { flex-direction: column; align-items: stretch; }
+    .hero-buttons .btn { width: 100%; justify-content: center; }
+    .project-image-architecture { height: 230px; padding: 12px; }
+}
+
+/* ========================================================================== */
+/* HCX portfolio · final refinement                                           */
+/* ========================================================================== */
+.portfolio-topbar {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 1200;
+    pointer-events: none;
+}
+
+.brand-mark-hcx {
+    position: fixed;
+    top: 22px;
+    left: 28px;
+    z-index: 1201;
+    pointer-events: auto;
+    display: grid;
+    place-items: center;
+    min-width: 52px;
+    height: 42px;
+    padding: 0 14px;
+    border: 1px solid rgba(255,255,255,.24);
+    border-radius: 14px;
+    background: rgba(15,23,42,.38);
+    backdrop-filter: blur(14px);
+    color: #fff;
+    font-size: .9rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(15,23,42,.12);
+}
+
+.language-switcher { pointer-events: auto; }
+
+/* Cleaner hero: no badge and no scroll overlay */
+.hero {
+    min-height: 100vh;
+    padding: 112px 0 84px;
+}
+
+.hero-content {
+    min-height: calc(100vh - 196px);
+}
+
+.hero-title {
+    max-width: 720px;
+    margin-bottom: 1.2rem;
+}
+
+.hero-description {
+    max-width: 710px;
+    font-size: clamp(1.02rem, 1.6vw, 1.15rem);
+    line-height: 1.75;
+    margin-bottom: 1.6rem;
+}
+
+.hero-presentation {
+    justify-content: flex-start;
+    width: fit-content;
+    max-width: 100%;
+    margin: 1.55rem 0 1.75rem;
+    padding: 14px 18px 14px 14px;
+    gap: 1.15rem;
+    background: rgba(255,255,255,.09);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 26px;
+    box-shadow: 0 18px 50px rgba(15,23,42,.12);
+}
+
+.profile-image-container {
+    width: 118px;
+    height: 132px;
+    overflow: hidden;
+    border-radius: 22px;
+    background: #fff;
+    border: 2px solid rgba(255,255,255,.9);
+    box-shadow: 0 12px 30px rgba(15,23,42,.22);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 20px;
+    object-fit: cover;
+    object-position: 50% 28%;
+    background: #fff;
+    box-shadow: none;
+}
+
+.profile-image:hover { transform: none; box-shadow: none; }
+.profile-border { display: none !important; }
+
+.profile-info { text-align: left; min-width: 0; }
+.profile-name {
+    margin: 0 0 .38rem;
+    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+    line-height: 1.12;
+}
+.profile-title {
+    margin: 0;
+    color: rgba(255,255,255,.96);
+    font-size: clamp(.96rem, 1.4vw, 1.08rem);
+    font-weight: 650;
+}
+.profile-stack {
+    margin: .5rem 0 0;
+    color: rgba(255,255,255,.68);
+    font-size: .82rem;
+    font-weight: 500;
+    letter-spacing: .01em;
+}
+
+.hero-buttons {
+    flex-wrap: wrap;
+    margin-bottom: 0;
+}
+
+.hero-buttons .btn { min-height: 48px; }
+
+.floating-card {
+    max-width: 510px;
+    margin-left: auto;
+}
+
+/* Short, intentionally minimal professional profile */
+.about-compact-section {
+    padding: 4.6rem 0;
+    background: #f8fafc;
+}
+.compact-section-header { margin-bottom: 1.7rem; }
+.compact-section-header .section-title { margin-bottom: 0; }
+.profile-summary-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.45rem 1.65rem;
+    background: #fff;
+    border: 1px solid #e7edf4;
+    border-radius: 20px;
+    box-shadow: 0 12px 34px rgba(15,23,42,.06);
+}
+.profile-summary {
+    max-width: 700px;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+.profile-cv-link {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: .65rem;
+    padding: .78rem 1rem;
+    border-radius: 12px;
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: 650;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.profile-cv-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+/* Project grid designed to grow naturally as future projects are added */
+.projects { padding-top: 5.2rem; padding-bottom: 5.5rem; }
+.portfolio-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 380px));
+    justify-content: center;
+    align-items: stretch;
+    gap: 1.7rem;
+}
+.portfolio-project-card {
+    width: 100%;
+    max-width: 380px;
+    height: 100%;
+    cursor: default;
+}
+.project-visual { position: relative; background: #fff; }
+.project-index {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 999px;
+    background: rgba(15,23,42,.88);
+    color: #fff;
+    font-size: .74rem;
+    font-weight: 750;
+    letter-spacing: .08em;
+    backdrop-filter: blur(8px);
+}
+.project-image-architecture {
+    height: 245px;
+    width: 100%;
+    object-fit: contain;
+    background: #fff;
+    padding: 18px;
+}
+.project-info { display: flex; flex-direction: column; height: calc(100% - 245px); }
+.project-heading-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .8rem;
+    margin-bottom: .45rem;
+}
+.project-heading-row .project-title { margin: 0; }
+.project-status {
+    flex: 0 0 auto;
+    padding: .32rem .58rem;
+    border-radius: 999px;
+    background: #dcfce7;
+    color: #166534;
+    font-size: .7rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.project-description { flex: 1; }
+.project-links { margin-top: 1rem; }
+
+/* Equal-size contact cards */
+.contact-content { width: 100%; }
+.contact-info.contact-grid-equal {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 1.5rem;
+}
+.contact-grid-equal .contact-card {
+    width: 100%;
+    min-height: 178px;
+    height: 100%;
+    align-items: flex-start;
+}
+.contact-grid-equal .contact-details {
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.contact-grid-equal .contact-details p {
+    overflow-wrap: anywhere;
+}
+.contact-grid-equal .contact-link { margin-top: auto; }
+
+/* Modal refinement */
+.architecture-modal-content { max-width: 1080px; }
+.architecture-modal-body { grid-template-columns: minmax(0, 1.45fr) minmax(280px, .55fr); align-items: center; }
+.architecture-image-container { background: #fff; border-radius: 14px; padding: 18px; }
+.architecture-modal-image { width: 100%; height: auto; max-height: 72vh; object-fit: contain; }
+.architecture-close { border: 0; background: transparent; font: inherit; cursor: pointer; }
+
+.footer-brand strong {
+    display: inline-block;
+    margin-bottom: .5rem;
+    color: var(--primary-color);
+    font-size: 1.15rem;
+    letter-spacing: .12em;
+}
+
+@media (max-width: 1024px) {
+    .hero-content { grid-template-columns: 1fr; gap: 2.8rem; }
+    .hero-visual { max-width: 650px; width: 100%; margin: 0 auto; }
+    .floating-card { max-width: none; }
+    .tech-stack { right: 0; }
+    .architecture-modal-body { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+    .contact-info.contact-grid-equal { grid-template-columns: 1fr; }
+    .contact-grid-equal .contact-card { min-height: 142px; }
+}
+
+@media (max-width: 768px) {
+    .brand-mark-hcx { top: 12px; left: 12px; min-width: 46px; height: 38px; padding: 0 11px; }
+    .language-switcher { top: 12px; right: 12px; }
+    .hero { padding-top: 84px; }
+    .hero-content { min-height: auto; }
+    .hero-presentation { width: 100%; }
+    .profile-summary-row { align-items: flex-start; flex-direction: column; gap: 1.15rem; }
+    .profile-cv-link { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 560px) {
+    .hero-presentation { align-items: center; padding: 12px; border-radius: 22px; }
+    .profile-image-container { width: 92px; height: 108px; border-radius: 18px; }
+    .profile-image { border-radius: 16px; }
+    .profile-name { font-size: 1.18rem; }
+    .profile-title { font-size: .88rem; }
+    .profile-stack { font-size: .72rem; }
+    .hero-buttons { flex-direction: column; align-items: stretch; }
+    .hero-buttons .btn { width: 100%; justify-content: center; }
+    .portfolio-projects-grid { grid-template-columns: 1fr; }
+    .portfolio-project-card { max-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* ========================================================================== */
+/* V6 · polished header, clean identity card and professional footer           */
+/* ========================================================================== */
+
+.portfolio-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1200;
+    padding: 14px 20px 0;
+    pointer-events: none;
+}
+
+.topbar-inner {
+    width: min(1180px, 100%);
+    min-height: 58px;
+    margin: 0 auto;
+    padding: 7px 8px 7px 10px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 18px;
+    background: rgba(15, 42, 91, .62);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    box-shadow: 0 14px 40px rgba(15,23,42,.14);
+    pointer-events: auto;
+}
+
+.brand-mark-hcx {
+    position: static;
+    min-width: 62px;
+    height: 42px;
+    padding: 0 15px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 12px;
+    background: rgba(255,255,255,.10);
+    box-shadow: none;
+    font-size: .88rem;
+    letter-spacing: .14em;
+}
+
+.topbar-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.topbar-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 38px;
+    padding: 0 13px;
+    border-radius: 10px;
+    color: rgba(255,255,255,.84);
+    text-decoration: none;
+    font-size: .82rem;
+    font-weight: 650;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.topbar-nav a:hover {
+    color: #fff;
+    background: rgba(255,255,255,.10);
+}
+
+.topbar-nav .topbar-cv {
+    border: 1px solid rgba(255,255,255,.16);
+    background: rgba(255,255,255,.08);
+}
+
+.language-switcher {
+    position: static;
+    flex: 0 0 auto;
+    padding: 4px;
+    gap: 3px;
+    background: rgba(5, 25, 61, .40);
+    border-color: rgba(255,255,255,.12);
+    box-shadow: none;
+}
+
+.lang-btn {
+    min-width: 36px;
+    padding: 7px 8px;
+}
+
+/* Identity card: role only. Technologies belong elsewhere, not next to the name. */
+.hero-presentation {
+    padding-right: 22px;
+}
+
+.profile-info {
+    padding-right: 4px;
+}
+
+.profile-title {
+    margin-top: .15rem;
+    font-size: clamp(.96rem, 1.4vw, 1.08rem);
+    color: rgba(255,255,255,.86);
+}
+
+.profile-stack { display: none !important; }
+
+/* Footer */
+.portfolio-footer {
+    padding: 0;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(59,130,246,.17), transparent 32%),
+        #0b1630;
+    color: #fff;
+    border-top: 1px solid rgba(255,255,255,.07);
+}
+
+.portfolio-footer .container {
+    padding-top: 2.6rem;
+    padding-bottom: 1.2rem;
+}
+
+.footer-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+.footer-identity {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-mark {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 14px;
+    background: rgba(255,255,255,.07);
+    color: #fff;
+    font-size: .86rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+}
+
+.footer-identity strong {
+    display: block;
+    margin-bottom: .28rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.footer-identity p {
+    margin: 0;
+    color: rgba(226,232,240,.68);
+    font-size: .86rem;
+}
+
+.footer-socials {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.footer-socials a {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 12px;
+    background: rgba(255,255,255,.05);
+    color: rgba(255,255,255,.82);
+    text-decoration: none;
+    transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.footer-socials a:hover {
+    transform: translateY(-2px);
+    background: rgba(59,130,246,.20);
+    border-color: rgba(96,165,250,.40);
+    color: #fff;
+}
+
+.footer-bottom-modern {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0 0;
+    border-top: 1px solid rgba(255,255,255,.08);
+    text-align: left;
+}
+
+.footer-bottom-modern p {
+    margin: 0;
+    color: rgba(148,163,184,.78);
+    font-size: .78rem;
+}
+
+.back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    color: rgba(226,232,240,.82);
+    text-decoration: none;
+    font-size: .78rem;
+    font-weight: 650;
+    transition: color .2s ease;
+}
+
+.back-to-top:hover { color: #fff; }
+
+@media (max-width: 760px) {
+    .portfolio-topbar { padding: 10px 10px 0; }
+    .topbar-inner { min-height: 54px; border-radius: 16px; gap: 8px; padding: 6px; }
+    .brand-mark-hcx { min-width: 52px; height: 40px; padding: 0 11px; }
+    .topbar-nav a:not(.topbar-cv) { display: none; }
+    .topbar-nav { margin-left: auto; }
+    .topbar-nav .topbar-cv { min-height: 36px; padding: 0 10px; }
+    .language-switcher { margin-left: 0; }
+    .lang-btn { min-width: 32px; padding: 6px 6px; font-size: .71rem; }
+    .hero { padding-top: 92px; }
+
+    .footer-main,
+    .footer-bottom-modern {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .footer-socials { margin-left: 0; }
+}
+
+@media (max-width: 420px) {
+    .topbar-nav .topbar-cv span { display: none; }
+    .topbar-nav .topbar-cv { width: 36px; padding: 0; justify-content: center; }
+    .language-switcher { gap: 1px; }
+    .lang-btn { min-width: 29px; font-size: .67rem; }
+}
+
+/* ========================================================================== */
+/* V7 · HCX custom mark + refined hero actions                                */
+/* ========================================================================== */
+
+/* The HCX mark is a real graphic, not a text badge. */
+.brand-mark-hcx {
+    width: 88px;
+    min-width: 88px;
+    height: 42px;
+    padding: 3px 4px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+    transition: transform .2s ease, opacity .2s ease;
+}
+
+.brand-mark-hcx:hover {
+    transform: translateY(-1px);
+    background: transparent;
+}
+
+.brand-logo-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 10px rgba(2, 15, 42, .30));
+}
+
+/* Main actions: one coherent system instead of three oversized color blocks. */
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 12px;
+    margin: 0;
+}
+
+.hero-cta {
+    min-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 18px;
+    border-radius: 14px;
+    border: 1px solid transparent;
+    font: inherit;
+    font-size: .92rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+.hero-cta:hover {
+    transform: translateY(-2px);
+}
+
+.hero-cta-primary {
+    background: #fff;
+    color: #123b78;
+    box-shadow: 0 10px 24px rgba(8, 32, 78, .18);
+}
+
+.hero-cta-primary:hover {
+    background: #f8fbff;
+    box-shadow: 0 14px 30px rgba(8, 32, 78, .24);
+}
+
+.hero-cta-secondary {
+    background: rgba(255, 255, 255, .10);
+    border-color: rgba(255, 255, 255, .34);
+    color: #fff;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.hero-cta-secondary:hover {
+    background: rgba(255, 255, 255, .16);
+    border-color: rgba(255, 255, 255, .50);
+}
+
+.hero-cta-tertiary {
+    padding-left: 13px;
+    padding-right: 13px;
+    background: transparent;
+    color: rgba(255, 255, 255, .90);
+}
+
+.hero-cta-tertiary:hover {
+    background: rgba(255, 255, 255, .08);
+    color: #fff;
+}
+
+.hero-cta i {
+    font-size: .82rem;
+}
+
+/* Footer uses the same HCX mark, without forcing it into another badge. */
+.footer-mark {
+    width: 96px;
+    height: 48px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+.footer-logo-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 7px 16px rgba(0, 0, 0, .28));
+}
+
+@media (max-width: 700px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .hero-cta {
+        width: 100%;
+        min-height: 48px;
+    }
+
+    .hero-cta-tertiary {
+        border: 1px solid rgba(255,255,255,.18);
+        background: rgba(255,255,255,.06);
+    }
+}
+
+@media (max-width: 760px) {
+    .brand-mark-hcx {
+        width: 72px;
+        min-width: 72px;
+        height: 38px;
+        padding: 3px;
+    }
+
+    .footer-mark {
+        width: 82px;
+        height: 42px;
+    }
+}
+
+@media (max-width: 420px) {
+    .brand-mark-hcx {
+        width: 66px;
+        min-width: 66px;
+        height: 36px;
+    }
+}
