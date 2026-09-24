@@ -1,23 +1,31 @@
-# Portfolio · Hassan Chafi Xavier
+# Hassan Chafi Xavier · Portfolio
 
-Portfolio estático preparado para GitHub Pages.
+Portfolio estático listo para GitHub Pages.
 
 ## Publicación
 
-1. Crea el repositorio `hassxa.github.io`.
-2. Sube **el contenido de esta carpeta** a la raíz del repositorio.
-3. En GitHub, abre `Settings → Pages` y publica desde la rama principal si no queda habilitado automáticamente.
+Sube **el contenido de esta carpeta directamente a la raíz** del repositorio de GitHub Pages (por ejemplo, `hassxa.github.io`).
 
-## Estructura
+Archivos principales:
+- `index.html`
+- `style-v10.css`
+- `script-v10.js`
+- `.nojekyll`
+- `imagenes/`
+- `assets/`
 
-- `index.html`: portfolio principal.
-- `style.css`: estilos responsive.
-- `script.js`: selector ES / EN / FR, animaciones y modal de arquitectura.
-- `site.webmanifest`: metadatos básicos del sitio.
-- `imagenes/hcx-logo.png`: símbolo HCX utilizado en cabecera y footer.
-- `imagenes/hassan_xavier.jpg`: fotografía de perfil.
-- `imagenes/Malaga-Stays-AWS-Architecture.png`: arquitectura de Málaga Stays.
-- `assets/CHAFI_XAVIER_HASSAN_CV.pdf`: CV descargable, sin modificaciones.
-- `assets/favicon.ico` y PNG asociados: favicon derivado del símbolo HCX.
+## Idiomas y CV
 
-La cuadrícula de proyectos está preparada para añadir nuevas tarjetas en el futuro sin cambiar la estructura general del sitio.
+La web dispone de español, inglés y francés. El botón de CV cambia automáticamente de archivo según el idioma activo:
+- ES → `assets/CV-Hassan-Chafi-Xavier-ES.pdf`
+- EN → `assets/CV-Hassan-Chafi-Xavier-EN.pdf`
+- FR → `assets/CV-Hassan-Chafi-Xavier-FR.pdf`
+
+## Proyectos
+
+- Málaga Stays — en producción.
+- Cloud Image Processing API — en desarrollo.
+
+
+## Posicionamiento
+Data Engineer · Cloud Engineer
