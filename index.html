@@ -3,15 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hassan Chafi Xavier · Data Engineering & Cloud</title>
-    <meta name="description" content="Portfolio profesional de Hassan Chafi Xavier centrado en Data Engineering, Cloud y AWS.">
-    <link rel="icon" href="assets/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
+    <title>Hassan Chafi Xavier · Data Engineer & Cloud Engineer</title>
+    <meta name="description" content="Portfolio profesional de Hassan Chafi Xavier, Data Engineer y Cloud Engineer, centrado en datos a gran escala, AWS, automatización y pipelines.">
+    <link rel="icon" href="./assets/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="manifest" href="./site.webmanifest">
     <meta name="theme-color" content="#0d2b5e">
-    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Critical header paint: keeps the brand stable while the main stylesheet loads. */
+      .portfolio-topbar{position:fixed;top:0;left:0;right:0;z-index:1200;padding:14px 20px 0;pointer-events:none}
+      .topbar-inner{width:min(1180px,100%);min-height:58px;margin:0 auto;padding:7px 8px 7px 10px;display:flex;align-items:center;gap:18px;border:1px solid rgba(255,255,255,.18);border-radius:18px;background:rgba(15,42,91,.62);backdrop-filter:blur(18px);pointer-events:auto}
+      .brand-mark-hcx{display:flex;width:88px;min-width:88px;height:42px;padding:3px 4px;align-items:center;justify-content:center;overflow:hidden;text-decoration:none}
+      .brand-logo-img{display:block;width:88px;height:42px;max-width:100%;object-fit:contain}
+      .topbar-nav{margin-left:auto;display:flex;align-items:center;gap:8px}.topbar-nav a{color:#fff;text-decoration:none}
+      .language-switcher{display:flex;align-items:center;gap:3px}.lang-btn{min-width:36px}
+      @media(max-width:760px){.portfolio-topbar{padding:10px 10px 0}.topbar-nav{display:none}.brand-mark-hcx{width:72px;min-width:72px;height:38px}.brand-logo-img{width:72px;height:38px}}
+    </style>
+    <link rel="stylesheet" href="./style-v10.css?v=20260924-2">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -19,16 +29,12 @@
     <header class="portfolio-topbar">
         <div class="topbar-inner">
             <a class="brand-mark-hcx" href="#hero" aria-label="Hassan Chafi Xavier - inicio">
-                <img src="imagenes/hcx-logo.png" alt="" class="brand-logo-img" aria-hidden="true">
+                <img src="./imagenes/hcx-logo.png" alt="" class="brand-logo-img" width="88" height="42" aria-hidden="true">
             </a>
 
             <nav class="topbar-nav" aria-label="Main navigation">
                 <a href="#projects" data-i18n="nav.projects">Proyectos</a>
                 <a href="#contact" data-i18n="nav.contact">Contacto</a>
-                <a href="assets/CHAFI_XAVIER_HASSAN_CV.pdf" download="CHAFI_XAVIER_HASSAN_CV.pdf" class="topbar-cv">
-                    <i class="fas fa-file-arrow-down"></i>
-                    <span data-i18n="nav.cv">CV</span>
-                </a>
             </nav>
 
             <div class="language-switcher" aria-label="Language selector">
@@ -55,20 +61,20 @@
             <div class="hero-content">
                 <div class="hero-text fade-in">
                     <h1 class="hero-title" data-i18n-html="hero.title">
-                        Ingeniería de datos <span class="gradient-text">& cloud</span>
+                        Data Engineer <span class="gradient-text">& Cloud Engineer</span>
                     </h1>
 
                     <p class="hero-description" data-i18n="hero.description">
-                        Diseño y desarrollo soluciones de datos con Python, PySpark y SQL, y trabajo con AWS para construir arquitecturas orientadas a procesamiento, automatización y escalabilidad.
+                        Diseño y desarrollo soluciones de datos a gran escala y arquitecturas cloud en AWS, con foco en automatización, escalabilidad y pipelines mantenibles.
                     </p>
 
                     <div class="hero-presentation">
                         <div class="profile-image-container">
-                            <img src="imagenes/hassan_xavier.jpg" alt="Hassan Chafi Xavier" class="profile-image">
+                            <img src="./imagenes/hassan_xavier.jpg" alt="Hassan Chafi Xavier" class="profile-image">
                         </div>
                         <div class="profile-info">
                             <h2 class="profile-name">Hassan Chafi Xavier</h2>
-                            <p class="profile-title" data-i18n="hero.role">Data Engineer · Cloud Engineering</p>
+                            <p class="profile-title" data-i18n="hero.role">Data Engineer · Cloud Engineer</p>
                         </div>
                     </div>
 
@@ -77,7 +83,7 @@
                             <span data-i18n="buttons.projects">Ver proyectos</span>
                             <i class="fas fa-arrow-down"></i>
                         </button>
-                        <a id="cvButton" class="hero-cta hero-cta-secondary" href="assets/CHAFI_XAVIER_HASSAN_CV.pdf" download="CHAFI_XAVIER_HASSAN_CV.pdf">
+                        <a id="cvButton" class="hero-cta hero-cta-secondary" href="./assets/CV-Hassan-Chafi-Xavier-ES.pdf" download="CV-Hassan-Chafi-Xavier-ES.pdf">
                             <i class="fas fa-file-arrow-down"></i>
                             <span data-i18n="buttons.cv">Descargar CV</span>
                         </a>
@@ -113,21 +119,36 @@
             </div>
         </section>
 
-        <!-- Perfil compacto -->
-        <section id="about" class="about about-compact-section">
+        <!-- Enfoque -->
+        <section id="about" class="about focus-section">
             <div class="container">
-                <div class="section-header compact-section-header">
-                    <div class="section-badge"><i class="fas fa-code-branch"></i><span data-i18n="about.badge">Perfil</span></div>
-                    <h2 class="section-title" data-i18n="about.title">Data & Cloud</h2>
+                <div class="section-header focus-section-header">
+                    <div class="section-badge"><i class="fas fa-compass"></i><span data-i18n="about.badge">Enfoque</span></div>
+                    <h2 class="section-title" data-i18n="about.title">Datos a escala, cloud y automatización</h2>
+                    <p class="section-subtitle" data-i18n="about.intro">Me interesa convertir necesidades de datos en soluciones claras y escalables, utilizando cloud cuando aporta valor y evitando complejidad innecesaria.</p>
                 </div>
-                <div class="profile-summary-row">
-                    <p class="profile-summary" data-i18n="about.summary">
-                        Perfil técnico centrado en ingeniería de datos y cloud, con foco en procesamiento, automatización y arquitectura AWS.
-                    </p>
-                    <a class="profile-cv-link" href="assets/CHAFI_XAVIER_HASSAN_CV.pdf" download="CHAFI_XAVIER_HASSAN_CV.pdf">
-                        <i class="fas fa-file-arrow-down"></i>
-                        <span data-i18n="buttons.cv">Descargar CV</span>
-                    </a>
+
+                <div class="focus-grid">
+                    <article class="focus-card">
+                        <div class="focus-number">01</div>
+                        <div class="focus-icon"><i class="fas fa-diagram-project"></i></div>
+                        <h3 data-i18n="about.dataTitle">Datos a escala</h3>
+                        <p data-i18n="about.dataText">Procesamiento distribuido y pipelines pensados para mover, transformar y validar grandes volúmenes de datos de forma fiable.</p>
+                    </article>
+
+                    <article class="focus-card">
+                        <div class="focus-number">02</div>
+                        <div class="focus-icon"><i class="fas fa-cloud"></i></div>
+                        <h3 data-i18n="about.cloudTitle">Arquitectura cloud</h3>
+                        <p data-i18n="about.cloudText">Arquitecturas AWS ajustadas al caso de uso, con atención a escalabilidad, disponibilidad y simplicidad operativa.</p>
+                    </article>
+
+                    <article class="focus-card">
+                        <div class="focus-number">03</div>
+                        <div class="focus-icon"><i class="fas fa-gears"></i></div>
+                        <h3 data-i18n="about.automationTitle">Automatización</h3>
+                        <p data-i18n="about.automationText">Flujos reproducibles que reducen tareas manuales y facilitan la operación y evolución de los sistemas.</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -138,13 +159,13 @@
                 <div class="section-header">
                     <div class="section-badge"><i class="fas fa-project-diagram"></i><span data-i18n="projects.badge">Proyectos</span></div>
                     <h2 class="section-title" data-i18n="projects.title">Proyectos</h2>
-                    <p class="section-subtitle" data-i18n="projects.subtitle">Proyectos personales centrados en datos, cloud y arquitectura AWS.</p>
+                    <p class="section-subtitle" data-i18n="projects.subtitle">Proyectos personales donde aplico decisiones de arquitectura, datos y cloud a problemas concretos.</p>
                 </div>
 
                 <div class="projects-grid portfolio-projects-grid">
                     <article class="project-card portfolio-project-card">
                         <div class="project-visual">
-                            <img src="imagenes/Malaga-Stays-AWS-Architecture.png" alt="Arquitectura AWS de Málaga Stays" class="project-image project-image-architecture">
+                            <img src="./imagenes/Malaga-Stays-AWS-Architecture.png" alt="Arquitectura AWS de Málaga Stays" class="project-image project-image-architecture">
                             <span class="project-index">01</span>
                         </div>
                         <div class="project-info">
@@ -169,6 +190,30 @@
                                     <i class="fas fa-external-link-alt"></i>
                                     <span data-i18n="projects.live">Visitar web</span>
                                 </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card portfolio-project-card project-card-development">
+                        <div class="project-visual project-visual-development">
+                            <span class="project-index">02</span>
+                            <div class="development-visual" aria-hidden="true">
+                                <div class="development-kicker">BUILDING</div>
+                                <div class="development-flow">
+                                    <span>API</span><i class="fas fa-arrow-right"></i><span>ECS</span><i class="fas fa-arrow-right"></i><span>S3</span>
+                                </div>
+                                <div class="development-caption">Docker · ECR · Fargate · ALB</div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-heading-row">
+                                <h3 class="project-title">Cloud Image Processing API</h3>
+                                <span class="project-status project-status-development" data-i18n="projects.futureStatus">En desarrollo</span>
+                            </div>
+                            <p class="project-description" data-i18n="projects.futureDescription">API contenerizada para subir, optimizar y almacenar imágenes en AWS. El proyecto está orientado a construir un despliegue completo con contenedores gestionados sobre ECS y Fargate.</p>
+                            <div class="future-project-meta">
+                                <span class="future-project-label" data-i18n="projects.futureArchitecture">Arquitectura prevista</span>
+                                <p>Docker → ECR → ECS / Fargate → ALB → S3</p>
                             </div>
                         </div>
                     </article>
@@ -225,7 +270,7 @@
             </div>
             <div class="modal-body architecture-modal-body">
                 <div class="modal-image-container architecture-image-container">
-                    <img src="imagenes/Malaga-Stays-AWS-Architecture.png" alt="Málaga Stays AWS Architecture" class="modal-image architecture-modal-image">
+                    <img src="./imagenes/Malaga-Stays-AWS-Architecture.png" alt="Málaga Stays AWS Architecture" class="modal-image architecture-modal-image">
                 </div>
                 <div class="modal-info architecture-modal-info">
                     <p data-i18n="projects.modalDescription">Route 53 resuelve el dominio, CloudFront entrega el contenido por HTTPS y accede mediante OAC a un bucket privado de S3. El certificado TLS se gestiona con AWS Certificate Manager.</p>
@@ -252,11 +297,11 @@
             <div class="footer-main">
                 <div class="footer-identity">
                     <div class="footer-mark">
-                        <img src="imagenes/hcx-logo.png" alt="" class="footer-logo-img" aria-hidden="true">
+                        <img src="./imagenes/hcx-logo.png" alt="" class="footer-logo-img" width="96" height="48" aria-hidden="true">
                     </div>
                     <div>
                         <strong>Hassan Chafi Xavier</strong>
-                        <p data-i18n="footer.role">Data Engineer · Cloud Engineering</p>
+                        <p data-i18n="footer.role">Data Engineer · Cloud Engineer</p>
                     </div>
                 </div>
 
@@ -274,6 +319,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="./script-v10.js?v=20260924-2"></script>
 </body>
 </html>
